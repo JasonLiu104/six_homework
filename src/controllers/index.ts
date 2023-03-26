@@ -1,4 +1,4 @@
-import { PostsController } from './postsController'
+import { PostsController } from './PostsController'
 export {
   PostsController
 }
