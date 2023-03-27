@@ -4,13 +4,14 @@ import { syncError } from '../utilities/error'
 const router = express.Router();
 
 router.get('/', syncError(async (req, res) => {
-    const result = await PostsController.get(req, res)
-    res.json(result).end()
+    const result = await PostsController.get()
+    res.json(result)
 }));
 
 router.post('/', syncError(async (req, res) => {
-    const result = await PostsController.create(req, res)
-    res.json(result).end()
+    const {body} = req
+    const result = await PostsController.create(body)
+    res.json(result)
 }));
 
 export default router;
