@@ -5,7 +5,7 @@
     "title": "META API",
     "description": "API文件"
   },
-  "host": "https://meta-api.herokuapp.com",
+  "host": "https://blog-server-izfg.onrender.com",
   "basePath": "/",
   "tags": [],
   "schemes": [
