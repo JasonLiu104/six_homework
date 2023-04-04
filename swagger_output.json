@@ -20,6 +20,7 @@
         "tags": [
           "Example"
         ],
+        "summary": "取得範例資料",
         "description": "取得範例資料",
         "parameters": [],
         "responses": {

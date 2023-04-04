@@ -7,6 +7,7 @@ router.get(
   serviceError.asyncError((req, res, next) => {
     /**
      * #swagger.tags = ['自行填寫']
+     * #swagger.summary = '自行填寫'
      * #swagger.description = '自行填寫'
      * #swagger.responses[200] = {
         description: '回傳範例資料',

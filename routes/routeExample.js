@@ -8,6 +8,7 @@ router.get(
   serviceError.asyncError((req, res, next) => {
     /**
      * #swagger.tags = ['Example']
+     * #swagger.summary = '取得範例資料'
      * #swagger.description = '取得範例資料'
      * #swagger.responses[200] = {
         description: '回傳範例資料',
