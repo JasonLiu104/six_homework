@@ -5,7 +5,7 @@
     "title": "META API",
     "description": "API文件"
   },
-  "host": "https://blog-server-izfg.onrender.com",
+  "host": "blog-server-izfg.onrender.com",
   "basePath": "/",
   "tags": [],
   "schemes": [
