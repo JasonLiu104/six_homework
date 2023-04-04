@@ -3,5 +3,5 @@
 
 npm run test
 npm run swagger-production
-git add ./swagger.json
+git add ./swagger_output.json
 npx lint-staged
