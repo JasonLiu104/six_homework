@@ -10,6 +10,14 @@ router.get(
      * #swagger.tags = ['Post']
      * #swagger.summary = '取得貼文列表'
      * #swagger.description = '取得貼文資料'
+     * #swagger.parameters['timeSort'] = {
+        in: 'query',
+        description: '排序方式 asc/desc'
+      }
+     * #swagger.parameters['q'] = {
+        in: 'query',
+        description: '模糊搜尋'
+      }
      * #swagger.responses[200] = {
         description: '回傳貼文資料',
         schema: {
@@ -29,7 +37,8 @@ router.get(
         }
       }
      */
-    const result = await controllerPosts.getPosts()
+    const { query } = req
+    const result = await controllerPosts.getPosts(query)
     serviceResponse.success(res, result)
   })
 )

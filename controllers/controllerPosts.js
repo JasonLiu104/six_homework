@@ -8,11 +8,13 @@ const controllerPost = {
     })
     return newPost
   },
-  async getPosts () {
-    const posts = await modelPosts.find().populate({
+  async getPosts (query) {
+    const timeSort = query.timeSort === 'asc' ? 'asc' : 'desc'
+    const q = query !== undefined ? { content: new RegExp(query.q) } : {}
+    const posts = await modelPosts.find(q).populate({
       path: 'user',
       select: 'name photo'
-    })
+    }).sort({ createAt: timeSort })
     return posts
   }
 }

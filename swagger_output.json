@@ -52,7 +52,20 @@
         ],
         "summary": "取得貼文列表",
         "description": "取得貼文資料",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "timeSort",
+            "in": "query",
+            "description": "排序方式 asc/desc",
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "模糊搜尋",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "回傳貼文資料",
