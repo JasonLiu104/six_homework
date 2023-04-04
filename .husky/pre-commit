@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run test
-npm run swagger
+npm run swagger-production
 npx lint-staged
