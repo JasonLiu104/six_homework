@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "test": "jest",
-    "swagger": "node ./swagger.js",
+    "swagger": "NODE_ENV=development node ./swagger.js ",
     "prepare": "husky install",
     "lint": "eslint --fix --ext .js ."
   },

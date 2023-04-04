@@ -5,5 +5,5 @@ module.exports = {
   DATABASE: process.env.DATABASE,
   DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
   PORT: process.env.PORT,
-  host: process.env.HOST
+  host: process.env.NODE_ENV === 'development' ? 'localhost:3000' : 'https://meta-api.herokuapp.com'
 }
