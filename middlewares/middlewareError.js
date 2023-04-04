@@ -1,7 +1,7 @@
 const middlewareError = (err, req, res, next) => {
   // dev
   err.statusCode = err.statusCode || 500
-  if (process.env.NODE_ENV === 'dev') {
+  if (process.env.NODE_ENV === 'development') {
     return res.status(err.statusCode).json({
       message: err.message,
       error: err,

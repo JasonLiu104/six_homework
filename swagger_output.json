@@ -44,6 +44,149 @@
           }
         }
       }
+    },
+    "/posts/": {
+      "get": {
+        "tags": [
+          "Post"
+        ],
+        "summary": "取得貼文列表",
+        "description": "取得貼文資料",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "回傳貼文資料",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "example": "642bda33a4ab589d9a9cc291"
+                    },
+                    "content": {
+                      "type": "string",
+                      "example": "測試"
+                    },
+                    "image": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "642bd0474819e89ecb878c4a"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "photo": {
+                          "type": "string",
+                          "example": "https://thumb.fakeface.rest/thumb_male_10_8c02e4e9bdc0e103530691acfca605f18caf1766.jpg"
+                        }
+                      }
+                    },
+                    "likes": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "642bda33a4ab589d9a9cc291"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Post"
+        ],
+        "summary": "新增貼文",
+        "description": "新增貼文資料",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Add a user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "string",
+                  "example": "642bd0474819e89ecb878c4a"
+                },
+                "content": {
+                  "type": "string",
+                  "example": "測試3"
+                }
+              }
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "example": "測試3"
+                    },
+                    "image": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "createAt": {
+                      "type": "string",
+                      "example": "2023-04-04T08:10:25.698Z"
+                    },
+                    "user": {
+                      "type": "string",
+                      "example": "642bd0474819e89ecb878c4a"
+                    },
+                    "likes": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "_id": {
+                      "type": "string",
+                      "example": "642bdba2712ab795131db4e4"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "definitions": {}
