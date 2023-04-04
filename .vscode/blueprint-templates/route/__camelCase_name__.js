@@ -4,7 +4,7 @@ const serviceError = require('@/services/serviceError')
 const serviceResponse = require('@/services/serviceResponse')
 router.get(
   '/',
-  serviceError.asyncError((req, res, next) => {
+  serviceError.asyncError(async (req, res, next) => {
     /**
      * #swagger.tags = ['自行填寫']
      * #swagger.summary = '自行填寫'
@@ -17,7 +17,7 @@ router.get(
         }
       }
      */
-    const result = '請引入 controller'
+    const result = await '請引入 controller'
     serviceResponse.success(res, result)
   })
 )

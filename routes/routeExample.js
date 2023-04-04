@@ -5,7 +5,7 @@ const controllerExample = require('@/controllers/controllerExample')
 const serviceResponse = require('@/services/serviceResponse')
 router.get(
   '/',
-  serviceError.asyncError((req, res, next) => {
+  serviceError.asyncError(async (req, res, next) => {
     /**
      * #swagger.tags = ['Example']
      * #swagger.summary = '取得範例資料'
@@ -18,7 +18,7 @@ router.get(
         }
       }
      */
-    const result = controllerExample.get()
+    const result = await controllerExample.get()
     serviceResponse.success(res, result)
   })
 )

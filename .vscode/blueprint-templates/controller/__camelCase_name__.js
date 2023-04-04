@@ -1,5 +1,5 @@
 const {{ camelCase name }} = {
-  get() {
+  async get() {
     // logic call model && service
     return 'Hello World'
   }
