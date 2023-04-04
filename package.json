@@ -41,8 +41,5 @@
       "npm run lint",
       "git add ./swagger_output.json"
     ]
-  },
-  "engines": {
-    "node": "16.15.10"
   }
 }
