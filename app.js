@@ -29,11 +29,13 @@ app.use(cors({
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   allowedHeaders: ['Content-Type', 'Authorization']
 })) // 設定 cors
-app.use(middlewareError) // 設定錯誤處理
 
 // Set up routes
 app.use('/example', routeExample)
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerFile)) // 設定 swagger 的路由
+
+// Set up error handling
+app.use(middlewareError) // 設定錯誤處理
 
 // 程式出現重大錯誤時
 process.on('uncaughtException', (err) => {

@@ -16,5 +16,7 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   ignorePatterns: ['.env', 'node_modules/'],
-  rules: {}
+  rules: {
+    'no-unused-vars': 'off'
+  }
 }
