@@ -34,7 +34,7 @@
     "swagger-ui-express": "^4.3.0"
   },
   "_moduleAliases": {
-    "@": "./"
+    "@": "."
   },
   "lint-staged": {
     "*.js": [
