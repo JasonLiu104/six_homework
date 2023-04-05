@@ -64,6 +64,7 @@ router.get(
 ![gitflow](https://user-images.githubusercontent.com/97425372/230048743-f5e504f1-7cf1-4946-8a87-02a32017a42c.png)
 
 ### 補充說明
+- 存檔會自動統一格式化程式碼，不需要使用自己的格式化工具。
 - 有設定 alias @ 代表根目錄
 - 自由切換 node 版本 nvm 教學 https://www.casper.tw/development/2022/01/10/install-nvm/
 - swagger 自動產生教學
