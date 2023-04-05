@@ -35,6 +35,8 @@ Listening on 3000
 - swagger_output.json(swagger檔案)
 ```
 ### api 架構
+![backendFlow](https://user-images.githubusercontent.com/97425372/230048798-7af8b0f5-c89f-4f16-8c38-c8f790f6c99b.png)
+
 ### 注意事項
 - 一律使用 npm ci 安裝保持版本一致，新套件再使用 npm i xxx
 - app.js 中 routes 引入請使用相對路徑不要使用 @ 別名不然 swagger 套件會吃不到
@@ -58,7 +60,7 @@ router.get(
 
 
 ### GIT FLOW
-
+![gitflow](https://user-images.githubusercontent.com/97425372/230048743-f5e504f1-7cf1-4946-8a87-02a32017a42c.png)
 
 ### 補充說明
 - 有設定 alias @ 代表根目錄
