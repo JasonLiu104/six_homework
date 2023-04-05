@@ -66,6 +66,8 @@ router.get(
 ### 補充說明
 - 存檔會自動統一格式化程式碼，不需要使用自己的格式化工具。
 - 有設定 alias @ 代表根目錄
+
+### 補充教學
 - 自由切換 node 版本 nvm 教學 https://www.casper.tw/development/2022/01/10/install-nvm/
 - swagger 自動產生教學
 https://courses.hexschool.com/courses/2017785/lectures/45500767
@@ -75,5 +77,8 @@ https://courses.hexschool.com/courses/2017785/lectures/45500856
 https://www.casper.tw/development/2020/02/02/jest-intro/
 - 下載 vscode blueprint 可以使用設定好的模板快速產生(model/controller/route) 
 https://www.youtube.com/watch?v=AB68yqy8Sj0
-
+- github action 
+https://ithelp.ithome.com.tw/articles/10262377
+- husky git hook
+https://ithelp.ithome.com.tw/articles/10278411
 
