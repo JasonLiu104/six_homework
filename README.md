@@ -60,6 +60,7 @@ router.get(
 
 
 ### GIT FLOW
+- sprint 中沒有完成的 feature 順延到下個 sprint
 ![gitflow](https://user-images.githubusercontent.com/97425372/230048743-f5e504f1-7cf1-4946-8a87-02a32017a42c.png)
 
 ### 補充說明
@@ -71,7 +72,7 @@ https://courses.hexschool.com/courses/2017785/lectures/45500767
 https://courses.hexschool.com/courses/2017785/lectures/45500856
 - 測試教學
 https://www.casper.tw/development/2020/02/02/jest-intro/
-- 有設定模板讓大家可以快速產生(model/controller/route)vscode blueprint 
+- 下載 vscode blueprint 可以使用設定好的模板快速產生(model/controller/route) 
 https://www.youtube.com/watch?v=AB68yqy8Sj0
 
 
