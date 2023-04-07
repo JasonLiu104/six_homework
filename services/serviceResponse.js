@@ -7,7 +7,7 @@ const serviceResponse = {
       })
       .end()
   },
-  error (httpStatus, errMessage, next) {
+  error (httpStatus, errMessage) {
     // create a new error object
     const error = new Error(errMessage)
     // set the error status code
@@ -15,7 +15,7 @@ const serviceResponse = {
     // set a boolean flag to indicate the type of error
     error.isOperational = true
     // pass the error to the next() function
-    next(error)
+    return error
   }
 }
 
