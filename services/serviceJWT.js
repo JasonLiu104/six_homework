@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const serviceResponse = require('@/services/serviceResponse')
+const config = require('@/utilities/config')
 const serviceJWT = {
   generateJWT: (user) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
@@ -8,7 +9,7 @@ const serviceJWT = {
     return token
   },
   decode: async (token) => {
-    const userInfo = await jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+    const userInfo = await jwt.verify(token, config.JWT_SECRET, (err, payload) => {
       if (err) {
         throw serviceResponse.error(401, '沒有權限')
       } else {

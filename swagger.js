@@ -6,7 +6,7 @@ const doc = {
     title: 'META API',
     description: 'API文件'
   },
-  host: config.host,
+  host: config.HOST,
   schemes: ['http', 'https'],
   securityDefinitions: {
     apiKeyAuth: {
