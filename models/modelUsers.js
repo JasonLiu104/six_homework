@@ -11,10 +11,18 @@ const modelExample = mongoose.model(
       type: String,
       required: [true, '請輸入您的 Email'],
       unique: true,
-      lowercase: true,
-      select: false
+      lowercase: true
+      // select: false
     },
-    photo: String
+    photo: {
+      type: String
+    },
+    password: {
+      type: String,
+      required: [true, '請輸入密碼'],
+      minlength: 8,
+      select: false
+    }
   }, { versionKey: false })
 )
 

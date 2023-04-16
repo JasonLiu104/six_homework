@@ -7,7 +7,15 @@ const doc = {
     description: 'API文件'
   },
   host: config.host,
-  schemes: ['http', 'https']
+  schemes: ['http', 'https'],
+  securityDefinitions: {
+    apiKeyAuth: {
+      type: 'apiKey',
+      in: 'header', // can be 'header', 'query' or 'cookie'
+      name: 'Authorization', // name of the header, query parameter or cookie
+      description: 'jwt token'
+    }
+  }
 }
 
 const outputFile = './swagger_output.json'

@@ -27,8 +27,7 @@ const modelPosts = mongoose.model(
     }
   }, {
     toJSON: {
-      versionKey: false,
-      virtuals: true
+      versionKey: false
     }
   })
 )

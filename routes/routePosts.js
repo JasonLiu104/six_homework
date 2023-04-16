@@ -3,6 +3,7 @@ const router = express.Router()
 const serviceError = require('@/services/serviceError')
 const controllerPosts = require('@/controllers/controllerPosts')
 const serviceResponse = require('@/services/serviceResponse')
+const middlewareAuth = require('@/middlewares/middlewareAuth')
 router.get(
   '/',
   serviceError.asyncError(async (req, res, next) => {
@@ -32,7 +33,6 @@ router.get(
                 "photo": "https://thumb.fakeface.rest/thumb_male_10_8c02e4e9bdc0e103530691acfca605f18caf1766.jpg"
             },
             "likes": 0,
-            "id": "642bda33a4ab589d9a9cc291"
           },
         }
       }
@@ -45,16 +45,19 @@ router.get(
 
 router.post(
   '/',
+  middlewareAuth,
   serviceError.asyncError(async (req, res, next) => {
     /**
      * #swagger.tags = ['Post']
      * #swagger.summary = '新增貼文'
      * #swagger.description = '新增貼文資料'
+     * #swagger.security = [{
+        "apiKeyAuth": []
+      }]
      * #swagger.parameters['obj'] = {
         in: 'body',
         description: 'Add a user',
         schema: {
-              "user":"642bd0474819e89ecb878c4a",
               "content":"測試3"
          }
       }
@@ -73,7 +76,7 @@ router.post(
       }
      */
     const { user, content } = req.body
-    const result = await controllerPosts.insertPost(user,
+    const result = await controllerPosts.insertPost(req.user,
       content)
     serviceResponse.success(res, result)
   })

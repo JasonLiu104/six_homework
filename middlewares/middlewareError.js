@@ -15,6 +15,11 @@ const middlewareError = (err, req, res, next) => {
     err.isOperational = true
   }
 
+  if (err.message.includes('E11000 duplicate key error collection')) {
+    err.message = '資料重複，請重新輸入！'
+    err.isOperational = true
+  }
+
   if (err.isOperational) {
     return res.status(err.statusCode).json({
       message: err.message

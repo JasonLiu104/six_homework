@@ -4,7 +4,7 @@ const serviceError = require('@/services/serviceError')
 const serviceResponse = require('@/services/serviceResponse')
 router.get(
   '/',
-  serviceError.asyncError((req, res, next) => {
+  serviceError.asyncError(async (req, res, next) => {
     /**
      * #swagger.tags = ['自行填寫']
      * #swagger.description = '自行填寫'

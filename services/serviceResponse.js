@@ -15,7 +15,9 @@ const serviceResponse = {
     // set a boolean flag to indicate the type of error
     error.isOperational = true
     // pass the error to the next() function
-    next(error)
+    if (next) next(error)
+
+    return error
   }
 }
 

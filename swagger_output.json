@@ -12,6 +12,14 @@
     "http",
     "https"
   ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "jwt token"
+    }
+  },
   "consumes": [],
   "produces": [],
   "paths": {
@@ -45,7 +53,7 @@
         }
       }
     },
-    "/posts/": {
+    "/api/posts/": {
       "get": {
         "tags": [
           "Post"
@@ -111,10 +119,6 @@
                     "likes": {
                       "type": "number",
                       "example": 0
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "642bda33a4ab589d9a9cc291"
                     }
                   }
                 }
@@ -140,10 +144,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "type": "string",
-                  "example": "642bd0474819e89ecb878c4a"
-                },
                 "content": {
                   "type": "string",
                   "example": "測試3"
@@ -198,7 +198,375 @@
             },
             "description": "OK"
           }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/sign_up": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "使用者註冊",
+        "description": "使用者註冊",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "註冊資訊",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "jason"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "jason@gmail.com"
+                },
+                "confirmPassword": {
+                  "type": "string",
+                  "example": "jason"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "jason"
+                }
+              }
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "回傳註冊資訊與token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "example": "jason"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "z27089433@gmail.com"
+                        },
+                        "photo": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": "$2a$12$1/vlSkyJDXkJFkgUlHCqPOMlUaW3mXibBOj/mcH0AKCKzm42KuULa"
+                        },
+                        "_id": {
+                          "type": "string",
+                          "example": "643b854fadd06971aca8a0df"
+                        }
+                      }
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2I4NTRmYWRkMDY5NzFhY2E4YTBkZiIsImlhdCI6MTY4MTYyODc2NywiZXhwIjoxNjg0MjIwNzY3fQ.jgzymQFGUEraIaLDl4dOPRvaPb_H3yZLYZ4JVMrrrPM"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE2MjgyNDAsImV4cCI6MTY4NDIyMDI0MH0.gwSnMNRmu20n4OWW_-_oEI81RjWH_9ZB5RwvPP2cHbE"
+          }
         }
+      }
+    },
+    "/api/users/sign_in": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "使用者登入",
+        "description": "使用者登入",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "登入帳密",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "jason@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "jason"
+                }
+              }
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "回傳登入者訊息",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "643b854fadd06971aca8a0df"
+                        },
+                        "user": {
+                          "type": "string",
+                          "example": "jason"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "z27089433@gmail.com"
+                        },
+                        "photo": {
+                          "type": "string",
+                          "example": "123"
+                        }
+                      }
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2I4NTRmYWRkMDY5NzFhY2E4YTBkZiIsImlhdCI6MTY4MTYyODc2NywiZXhwIjoxNjg0MjIwNzY3fQ.jgzymQFGUEraIaLDl4dOPRvaPb_H3yZLYZ4JVMrrrPM"
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE2MjgyNDAsImV4cCI6MTY4NDIyMDI0MH0.gwSnMNRmu20n4OWW_-_oEI81RjWH_9ZB5RwvPP2cHbE"
+          }
+        }
+      }
+    },
+    "/api/users/update_password": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "更新使用者密碼",
+        "description": "更新使用者密碼",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "使用者新舊帳密與email",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "jason@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "jason"
+                },
+                "passwordNew": {
+                  "type": "string",
+                  "example": "jason"
+                }
+              }
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "回傳更新成功與否",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "isUpdate": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/profile": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "更新登入者訊息",
+        "description": "更新登入者訊息",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "登入者訊息",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "jason"
+                },
+                "photo": {
+                  "type": "string",
+                  "example": "jason"
+                }
+              }
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "回傳登入訊息與token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "643b854fadd06971aca8a0df"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "jason@gmail.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "jason"
+                        },
+                        "photo": {
+                          "type": "string",
+                          "example": "123"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE2MjgyNDAsImV4cCI6MTY4NDIyMDI0MH0.gwSnMNRmu20n4OWW_-_oEI81RjWH_9ZB5RwvPP2cHbE"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "登入者訊息",
+        "description": "登入者訊息",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "回傳登入者訊息",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "643b854fadd06971aca8a0df"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "jason"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "z27089433@gmail.com"
+                        },
+                        "photo": {
+                          "type": "string",
+                          "example": "123"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
       }
     }
   },
